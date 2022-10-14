@@ -12,7 +12,7 @@ function App() {
 
   return(
     <Box>
-      hello
+      {JSON.stringify(data)}
     </Box>
   )
 }
