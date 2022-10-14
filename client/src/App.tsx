@@ -18,6 +18,14 @@ function App() {
 
   const { data, mutate } = useSWR<Todo[]>('api/todos', fetcher)
 
+  async function markTodoAsDone(id: number) {
+    const updated = await fetch(`${ENDPOINT}/api/todos/${id}/done`, {
+      method: 'PATCH',
+    }).then(r => r.json())
+
+    mutate(updated)
+  }
+
   return(
     <Box
       sx={(theme) => ({
@@ -30,7 +38,8 @@ function App() {
       <List spacing="xs" size="sm" mb={12} center>
         {data?.map((todo) => {
           return <List.Item key={`todo_list__${todo.id}`}
-            icon={
+          onClick={() => markTodoAsDone(todo.id)}  
+          icon={
               todo.done ? (<ThemeIcon color="teal" size={24} radius="xl">
                 <CheckCircleFillIcon size={20} />
               </ThemeIcon>) : (<ThemeIcon color="gray" size={24} radius="xl">

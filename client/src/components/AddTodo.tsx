@@ -33,7 +33,7 @@ export default function AddTodo({ mutate }: {mutate:KeyedMutator<Todo[]>}) {
         <>
             <Modal opened={open}
                 onClose={() => setOpen(false)}
-                title="Create todo"
+                title="Create Todo"
             >
                 <form onSubmit={form.onSubmit(createTodo)}>
                     <TextInput 
@@ -51,7 +51,7 @@ export default function AddTodo({ mutate }: {mutate:KeyedMutator<Todo[]>}) {
                         {...form.getInputProps("body")}
                     />
 
-                    <Button type="submit">Create Todo</Button>
+                    <Button type="submit">Create todo:</Button>
                 </form>
             </Modal>
 
