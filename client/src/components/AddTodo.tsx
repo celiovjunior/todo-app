@@ -51,7 +51,7 @@ export default function AddTodo({ mutate }: {mutate:KeyedMutator<Todo[]>}) {
                         {...form.getInputProps("body")}
                     />
 
-                    <Button type="submit">Create todo:</Button>
+                    <Button type="submit">Create</Button>
                 </form>
             </Modal>
 
